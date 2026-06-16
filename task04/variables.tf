@@ -1,5 +1,5 @@
 variable "location" {
-  description = "Azure region"
+  description = "Azure region where resources will be created"
   type        = string
   default     = "West Europe"
 }
@@ -98,6 +98,12 @@ variable "vm_password" {
   description = "Admin password for the Virtual Machine."
   type        = string
   sensitive   = true
+}
+
+variable "nic_ip_configuration_name" {
+  description = "Name of the IP configuration block within the Network Interface"
+  type        = string
+  default     = "internal"
 }
 
 variable "tags" {
