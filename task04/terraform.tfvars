@@ -11,6 +11,7 @@ public_ip_name            = "cmaz-iaco50xm-mod4-pip"
 dns_name_label            = "cmaz-iaco50xm-mod4-nginx"
 vm_name                   = "cmaz-iaco50xm-mod4-vm"
 vm_os_version             = "ubuntu-24_04-lts"
+vm_os_sku                 = "server"
 vm_size                   = "Standard_B2s_v2"
 vm_admin_username         = "azureuser"
 

@@ -77,9 +77,15 @@ variable "vm_name" {
 }
 
 variable "vm_os_version" {
-  description = "OS version (sku) of the Ubuntu image"
+  description = "Offer of the Ubuntu image"
   type        = string
   default     = "ubuntu-24_04-lts"
+}
+
+variable "vm_os_sku" {
+  description = "SKU of the Ubuntu image (maps to source_image_reference.sku)"
+  type        = string
+  default     = "server"
 }
 
 variable "vm_size" {
