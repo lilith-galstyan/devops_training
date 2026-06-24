@@ -1,5 +1,4 @@
 resource "random_password" "admin_password" {
-  count       = var.admin_password == null ? 1 : 0
   length      = 20
   special     = true
   min_numeric = 1
@@ -9,7 +8,7 @@ resource "random_password" "admin_password" {
 }
 
 locals {
-  admin_password = try(random_password.admin_password[0].result, var.admin_password)
+  admin_password = random_password.admin_password.result
 }
 
 resource "azurerm_mssql_server" "server" {
@@ -18,7 +17,7 @@ resource "azurerm_mssql_server" "server" {
   location                     = var.location
   administrator_login          = var.admin_username
   administrator_login_password = local.admin_password
-  version = var.sql_server_version
+  version                      = var.sql_server_version
   tags                         = var.tags
 }
 
@@ -29,7 +28,7 @@ resource "azurerm_mssql_database" "db" {
 }
 
 resource "azurerm_mssql_firewall_rule" "allow_azure" {
-  name = var.allow_azure_services_rule_name
+  name             = var.allow_azure_services_rule_name
   server_id        = azurerm_mssql_server.server.id
   start_ip_address = "0.0.0.0"
   end_ip_address   = "0.0.0.0"
@@ -52,4 +51,4 @@ resource "azurerm_key_vault_secret" "sql_admin_password" {
   name         = var.sql_admin_secret_password
   value        = local.admin_password
   key_vault_id = var.key_vault_id
-}version = var.sql_server_version
+}

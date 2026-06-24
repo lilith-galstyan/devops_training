@@ -9,8 +9,8 @@ variable "sql_server_name" {
 }
 
 variable "sql_db_name" {
-    description = "SQL Database name"
-    type        = string
+  description = "SQL Database name"
+  type        = string
 }
 
 variable "sql_sku" {
@@ -20,7 +20,7 @@ variable "sql_sku" {
 
 variable "sql_fwr_name" {
   description = "SQL Server Firewall Rule name"
-  type = string
+  type        = string
 }
 
 variable "tags" {
