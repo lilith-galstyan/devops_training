@@ -1,0 +1,15 @@
+location                  = "France Central"
+kv_rg_name                = "cmaz-iaco50xm-mod6-kv-rg"
+kv_name                   = "cmaz-iaco50xm-mod6-kv"
+name_prefix               = "cmaz-iaco50xm-mod6"
+sql_admin_secret_name     = "sql-admin-name"
+sql_admin_secret_password = "sql-admin-password"
+sql_sku                   = "S2"
+sql_fwr_name              = "allow-verification-ip"
+asp_sku                   = "P0v3"
+app_dotnet_version        = "8.0"
+allowed_ip_address        = "18.153.146.156"
+admin_username            = "sqladmin"
+tags = {
+  Creator = "lilit_galstyan@epam.com"
+}
