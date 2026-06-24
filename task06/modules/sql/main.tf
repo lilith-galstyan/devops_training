@@ -25,6 +25,7 @@ resource "azurerm_mssql_database" "db" {
   name      = var.sql_db_name
   server_id = azurerm_mssql_server.server.id
   sku_name  = var.sql_sku
+  tags      = var.tags
 }
 
 resource "azurerm_mssql_firewall_rule" "allow_azure" {
