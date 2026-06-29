@@ -14,19 +14,9 @@ resource "azurerm_cdn_frontdoor_endpoint" "my_endpoint" {
 resource "azurerm_cdn_frontdoor_origin_group" "my_origin_group" {
   name                     = var.frontdoor_origin_group_name
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.my_front_door.id
-  session_affinity_enabled = true
+  session_affinity_enabled = false
 
-  load_balancing {
-    sample_size                 = 4
-    successful_samples_required = 3
-  }
-
-  health_probe {
-    path                = "/"
-    request_type        = "HEAD"
-    protocol            = "Https"
-    interval_in_seconds = 100
-  }
+  load_balancing {}
 }
 
 resource "azurerm_cdn_frontdoor_origin" "my_app_service_origin" {
