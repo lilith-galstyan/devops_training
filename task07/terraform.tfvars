@@ -1,0 +1,15 @@
+resource_group_name         = "cmtr-iaco50xm-mod7-rg"
+location                    = "East US"
+resource_group_id           = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg"
+storage_account_name        = "cmtriaco50xmmod7sa"
+storage_account_id          = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg/providers/Microsoft.Storage/storageAccounts/cmtriaco50xmmod7sa"
+storage_account_filename    = "blob.txt"
+frontdoor_profile_name      = "cmtr-iaco50xm-mod7-fd-profile"
+frontdoor_endpoint_name     = "cmtr-iaco50xm-mod7-fd-endpoint"
+frontdoor_profile_sku       = "Standard_AzureFrontDoor"
+frontdoor_origin_group_name = "cmtr-iaco50xm-mod7-fd-origin-group"
+frontdoor_origin_name       = "cmtr-iaco50xm-mod7-fd-origin"
+frontdoor_route_name        = "default"
+tags = {
+  Creator = "lilit_galstyan@epam.com"
+}
