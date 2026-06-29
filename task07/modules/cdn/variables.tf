@@ -8,6 +8,10 @@ variable "storage_account_host" {
   type        = string
 }
 
+variable "storage_account_filename" {
+  description = "Filename in Storage Account."
+  type        = string
+}
 
 variable "frontdoor_profile_name" {
   description = "CDN Front Door profile name."
