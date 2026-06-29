@@ -1,13 +1,12 @@
 import {
   to = azurerm_resource_group.this
-  id = var.resource_group_id
+  id = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg"
 }
 
 import {
   to = azurerm_storage_account.this
-  id = var.storage_account_id
+  id = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg/providers/Microsoft.Storage/storageAccounts/cmtriaco50xmmod7sa"
 }
-
 
 resource "azurerm_resource_group" "this" {
   name     = var.resource_group_name
