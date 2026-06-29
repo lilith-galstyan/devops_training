@@ -1,5 +1,5 @@
 resource_group_name         = "cmtr-iaco50xm-mod7-rg"
-location                    = "France Central"
+location                    = "East US"
 resource_group_id           = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg"
 storage_account_name        = "cmtriaco50xmmod7sa"
 storage_account_id          = "/subscriptions/7221393f-4130-48b0-a27e-8bb90abc742f/resourceGroups/cmtr-iaco50xm-mod7-rg/providers/Microsoft.Storage/storageAccounts/cmtriaco50xmmod7sa"
