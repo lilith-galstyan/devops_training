@@ -3,10 +3,11 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "location" {
-  description = "Region where the resource group is located."
+variable "storage_account_host" {
+  description = "Storage Account host name."
   type        = string
 }
+
 
 variable "frontdoor_profile_name" {
   description = "CDN Front Door profile name."
