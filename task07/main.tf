@@ -41,5 +41,6 @@ module "cdn" {
   frontdoor_origin_name       = var.frontdoor_origin_name
   frontdoor_route_name        = var.frontdoor_route_name
   storage_account_host        = local.storage_account_host
+  storage_account_filename    = var.storage_account_filename
   tags                        = var.tags
 }
