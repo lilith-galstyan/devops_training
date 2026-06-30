@@ -48,6 +48,7 @@ resource "azurerm_cdn_frontdoor_route" "my_route" {
   cdn_frontdoor_endpoint_id     = azurerm_cdn_frontdoor_endpoint.my_endpoint.id
   cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.my_origin_group.id
   cdn_frontdoor_origin_ids      = [azurerm_cdn_frontdoor_origin.my_app_service_origin.id]
+  cdn_frontdoor_origin_path     = "/mycontainer"
 
   supported_protocols    = ["Http", "Https"]
   patterns_to_match      = ["/*"]
