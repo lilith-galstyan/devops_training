@@ -1,3 +1,3 @@
 locals {
-  storage_account_host = "${var.storage_account_name}.blob.core.windows.net"
+  storage_account_host = azurerm_storage_account.this.primary_blob_host
 }
