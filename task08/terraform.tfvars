@@ -1,5 +1,5 @@
 resources_name_prefix = "cmtr-iaco50xm-mod8"
-location              = "West Europe"
+location              = "East US"
 
 tags = {
   Creator = "lilit_galstyan@epam.com"
