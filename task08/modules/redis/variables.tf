@@ -39,11 +39,11 @@ variable "keyvault_id" {
 }
 
 variable "redis_hostname_secret_name" {
-  description = "Secret name for the Redis hostname, from task parameter ${redis_hostname}."
+  description = "Secret name for the Redis hostname, from task parameter"
   type        = string
 }
 
 variable "redis_primary_key_secret_name" {
-  description = "Secret name for the Redis primary access key, from task parameter ${redis_primary_key}."
+  description = "Secret name for the Redis primary access key, from task parameter"
   type        = string
 }

@@ -9,16 +9,6 @@ variable "keyvault_sku" {
   default     = "standard"
 }
 
-variable "redis_primary_key" {
-  description = "The primary key for the Redis cache."
-  type        = string
-}
-
-variable "redis_hostname" {
-  description = "The hostname of the Redis cache."
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to be applied to the resources."
   type        = map(string)

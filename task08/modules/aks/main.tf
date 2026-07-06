@@ -26,34 +26,6 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 }
 
-resource "azurerm_kubernetes_cluster" "k8s" {
-  location            = var.location
-  name                = var.aks_name
-  resource_group_name = var.resource_group_name
-  dns_prefix          = var.aks_name
-  tags                = var.tags
-
-  identity {
-    type = "SystemAssigned"
-  }
-
-  default_node_pool {
-    name         = var.aks_node_pool_name
-    vm_size      = var.aks_node_pool_size
-    node_count   = var.aks_node_pool_count
-    os_disk_type = var.aks_node_pool_disk_type
-  }
-
-  key_vault_secrets_provider {
-    secret_rotation_enabled = true
-  }
-
-  network_profile {
-    network_plugin    = "kubenet"
-    load_balancer_sku = "standard"
-  }
-}
-
 resource "azurerm_role_assignment" "aks_acr_pull" {
   scope                = var.acr_id
   role_definition_name = "AcrPull"
