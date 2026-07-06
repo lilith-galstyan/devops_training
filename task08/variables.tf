@@ -132,3 +132,13 @@ variable "redis_sku_family" {
   description = "The SKU family of the Redis cache."
   type        = string
 }
+
+variable "redis_hostname_secret_name" {
+  description = "Secret name in Key Vault for the Redis hostname."
+  type        = string
+}
+
+variable "redis_primary_key_secret_name" {
+  description = "Secret name in Key Vault for the Redis primary access key."
+  type        = string
+}
