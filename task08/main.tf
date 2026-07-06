@@ -109,7 +109,7 @@ resource "kubectl_manifest" "secret_provider" {
     tenant_id                  = data.azurerm_client_config.current.tenant_id
   })
 
-  depends_on = [module.aks]
+  depends_on = [module.aks, module.redis]
 }
 
 resource "kubectl_manifest" "deployment" {
