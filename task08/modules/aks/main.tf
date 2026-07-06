@@ -12,10 +12,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   default_node_pool {
-    name         = var.aks_node_pool_name
-    vm_size      = var.aks_node_pool_size
-    node_count   = var.aks_node_pool_count
-    os_disk_type = var.aks_node_pool_disk_type
+    name            = var.aks_node_pool_name
+    vm_size         = var.aks_node_pool_size
+    node_count      = var.aks_node_pool_count
+    os_disk_type    = var.aks_node_pool_disk_type
+    os_disk_size_gb = 100
   }
 
   key_vault_secrets_provider {
@@ -28,14 +29,12 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 }
 
-# Allow AKS (via its kubelet identity) to pull images from ACR
 resource "azurerm_role_assignment" "aks_acr_pull" {
   scope                = var.acr_id
   role_definition_name = "AcrPull"
   principal_id         = azurerm_kubernetes_cluster.k8s.kubelet_identity[0].object_id
 }
 
-# Allow AKS's Key Vault Secrets Provider (CSI driver) identity to read secrets
 resource "azurerm_key_vault_access_policy" "aks_kv_secrets_provider" {
   key_vault_id = var.keyvault_id
   tenant_id    = data.azurerm_client_config.current.tenant_id
