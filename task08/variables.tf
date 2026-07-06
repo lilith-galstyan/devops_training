@@ -49,11 +49,6 @@ variable "zone" {
 }
 
 
-variable "acr_name" {
-  description = "The name of the Azure Container Registry."
-  type        = string
-}
-
 variable "acr_sku" {
   description = "The SKU of the Azure Container Registry."
   type        = string
@@ -77,11 +72,6 @@ variable "github_repo_url" {
   type        = string
 }
 
-variable "aks_name" {
-  description = "The name of the Azure Kubernetes Service (AKS) cluster."
-  type        = string
-}
-
 variable "aks_node_pool_name" {
   description = "The name of the node pool for the AKS cluster."
   type        = string
@@ -102,19 +92,19 @@ variable "aks_node_pool_disk_type" {
   type        = string
 }
 
-variable "keyvault_name" {
-  description = "The name of the Key Vault."
-  type        = string
-}
-
 variable "keyvault_sku" {
   description = "The SKU of the Key Vault."
   type        = string
   default     = "standard"
 }
 
-variable "redis_name" {
-  description = "The name of the Redis cache."
+variable "redis_hostname_secret_name" {
+  description = "Secret name in Key Vault for the Redis hostname."
+  type        = string
+}
+
+variable "redis_primary_key_secret_name" {
+  description = "Secret name in Key Vault for the Redis primary access key."
   type        = string
 }
 
@@ -130,15 +120,5 @@ variable "redis_sku" {
 
 variable "redis_sku_family" {
   description = "The SKU family of the Redis cache."
-  type        = string
-}
-
-variable "redis_hostname_secret_name" {
-  description = "Secret name in Key Vault for the Redis hostname."
-  type        = string
-}
-
-variable "redis_primary_key_secret_name" {
-  description = "Secret name in Key Vault for the Redis primary access key."
   type        = string
 }
