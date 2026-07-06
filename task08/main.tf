@@ -42,6 +42,8 @@ module "redis" {
   redis_hostname_secret_name    = var.redis_hostname_secret_name
   redis_primary_key_secret_name = var.redis_primary_key_secret_name
   keyvault_id                   = module.keyvault.id
+  depends_on                    = [module.keyvault]
+
 }
 
 data "azurerm_key_vault_secret" "redis_hostname" {
