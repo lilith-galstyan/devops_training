@@ -38,7 +38,7 @@ variable "memory_in_gb" {
 variable "port" {
   description = "The port number for the Azure Container Instance."
   type        = number
-  default     = 80
+  default     = 8080
 }
 
 variable "image" {
