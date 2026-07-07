@@ -11,6 +11,8 @@ image_name = "cmtr-iaco50xm-mod8-app"
 
 # ACI
 aci_sku = "Standard"
+port    = 8080
+
 
 # AKS
 aks_node_pool_name      = "system"
