@@ -27,14 +27,10 @@ resource "azurerm_container_group" "container" {
       protocol = "TCP"
     }
 
-
-    commands = ["flask", "run", "--host=0.0.0.0", "--port=80"]
-
     environment_variables = {
       CREATOR        = "ACI"
       REDIS_PORT     = "6380"
       REDIS_SSL_MODE = "True"
-      FLASK_APP      = "app.py"
     }
 
     secure_environment_variables = {
