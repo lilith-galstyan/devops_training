@@ -11,6 +11,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     type = "SystemAssigned"
   }
 
+  oidc_issuer_enabled = true
+
   default_node_pool {
     name            = var.aks_node_pool_name
     vm_size         = var.aks_node_pool_size
