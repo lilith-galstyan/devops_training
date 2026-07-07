@@ -8,44 +8,40 @@ variable "location" {
   type        = string
 }
 
-variable "aci_sku" {
-  description = "The SKU of the Azure Container Instance."
-  type        = string
-}
-
 variable "tags" {
   description = "Tags to be applied to the resources."
   type        = map(string)
 }
 
-variable "cpu_cores" {
-  description = "The number of CPU cores for the Azure Container Instance."
-  type        = number
-  default     = 1
-}
-
-variable "memory_in_gb" {
-  description = "The amount of memory in GB for the Azure Container Instance."
-  type        = number
-  default     = 1.5
-}
-
-variable "port" {
-  description = "The port number for the Azure Container Instance."
-  type        = number
-  default     = 80
-}
-
-variable "restart_policy" {
-  description = "Restart policy for the container group."
+variable "keyvault_sku" {
+  description = "The SKU of the Key Vault."
   type        = string
-  default     = "Always"
+  default     = "standard"
 }
 
-variable "zone" {
-  description = "Availability zone for the container group."
+variable "redis_hostname_secret_name" {
+  description = "Secret name in Key Vault for the Redis hostname."
   type        = string
-  default     = ""
+}
+
+variable "redis_password_secret_name" {
+  description = "Secret name in Key Vault for the Redis password."
+  type        = string
+}
+
+variable "redis_aci_sku" {
+  description = "The SKU of the Redis Azure Container Instance."
+  type        = string
+}
+
+variable "sa_replication_type" {
+  description = "The replication type of the Storage Account."
+  type        = string
+}
+
+variable "sa_container_name" {
+  description = "The name of the Blob Container in the Storage Account."
+  type        = string
 }
 
 
@@ -56,19 +52,6 @@ variable "acr_sku" {
 
 variable "image_name" {
   description = "The name of the Docker image to be pushed to the Azure Container Registry."
-  type        = string
-}
-
-
-variable "git_pat" {
-  description = "GitHub personal access token for accessing private repositories."
-  type        = string
-  sensitive   = true
-
-}
-
-variable "github_repo_url" {
-  description = "The URL of the GitHub repository containing the Dockerfile."
   type        = string
 }
 
@@ -92,33 +75,18 @@ variable "aks_node_pool_disk_type" {
   type        = string
 }
 
-variable "keyvault_sku" {
-  description = "The SKU of the Key Vault."
-  type        = string
-  default     = "standard"
-}
-
-variable "redis_hostname_secret_name" {
-  description = "Secret name in Key Vault for the Redis hostname."
-  type        = string
-}
-
-variable "redis_primary_key_secret_name" {
-  description = "Secret name in Key Vault for the Redis primary access key."
-  type        = string
-}
-
-variable "redis_capacity" {
-  description = "The capacity of the Redis cache."
+variable "aks_node_pool_os_disk_size_gb" {
+  description = "Optional explicit OS disk size in GB (needed if aks_node_pool_disk_type is 'Ephemeral' and the VM size's default 128GB disk exceeds its local NVMe capacity)."
   type        = number
+  default     = null
 }
 
-variable "redis_sku" {
-  description = "The SKU of the Redis cache."
+variable "aca_env_workload_profile_type" {
+  description = "Workload profile type for the Azure Container App Environment."
   type        = string
 }
 
-variable "redis_sku_family" {
-  description = "The SKU family of the Redis cache."
+variable "aca_workload_profile_type" {
+  description = "Workload profile type for the Azure Container App."
   type        = string
 }

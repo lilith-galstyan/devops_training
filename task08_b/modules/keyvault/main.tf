@@ -19,7 +19,11 @@ resource "azurerm_key_vault_access_policy" "current_user" {
   ]
 }
 
+# Azure AD permission propagation can lag behind the ARM resource being
+# marked complete - this buffer avoids 403s on the very next operation
+# (e.g. aci_redis module writing secrets), regardless of whether the
+# access policy was just created OR updated.
 resource "time_sleep" "wait_for_access_policy" {
   depends_on      = [azurerm_key_vault_access_policy.current_user]
-  create_duration = "120s"
+  create_duration = "60s"
 }

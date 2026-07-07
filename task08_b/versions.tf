@@ -1,9 +1,21 @@
 terraform {
-  required_version = ">= 1.5.7"
+  required_version = ">= 1.0"
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
       version = ">= 3.110.0, < 4.0.0"
+    }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.6"
+    }
+    time = {
+      source  = "hashicorp/time"
+      version = "~> 0.11"
     }
     kubectl = {
       source  = "alekc/kubectl"
@@ -13,19 +25,13 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = ">= 2.23.0"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "~>3.0"
-    }
-    time = {
-      source = "hashicorp/time"
-    }
   }
 }
 
 provider "azurerm" {
   features {}
 }
+
 
 provider "kubectl" {
   host                   = module.aks.host
