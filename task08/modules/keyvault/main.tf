@@ -21,5 +21,5 @@ resource "azurerm_key_vault_access_policy" "current_user" {
 
 resource "time_sleep" "wait_for_access_policy" {
   depends_on      = [azurerm_key_vault_access_policy.current_user]
-  create_duration = "30s"
+  create_duration = "120s"
 }
