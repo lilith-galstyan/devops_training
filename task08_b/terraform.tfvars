@@ -5,14 +5,12 @@ tags = {
   Creator = "lilit_galstyan@epam.com"
 }
 
-# Key Vault
 keyvault_sku               = "standard"
 redis_hostname_secret_name = "redis-hostname"
 redis_password_secret_name = "redis-password"
 
 redis_aci_sku = "Standard"
 
-# Storage Account
 sa_replication_type = "LRS"
 sa_container_name   = "app-content"
 
