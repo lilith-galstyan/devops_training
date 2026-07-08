@@ -43,19 +43,27 @@ variable "public_ip_name" {
   description = "Base name for the Azure Firewall Public IP Address resource"
 }
 
-variable "afw_subnet_address_prefix" {
-  type        = string
-  description = "Address prefix (CIDR) for the AzureFirewallSubnet. If left null, it is auto-derived from vnet_space using cidrsubnet()."
-  default     = null
-}
-
 variable "aks_loadbalancer_ip" {
   type        = string
   description = "Public IP address of the AKS load balancer fronting the NGINX service"
 }
 
+variable "firewall_sku_name" {
+  type        = string
+  description = "Azure Firewall SKU name"
+}
+
+variable "firewall_sku_tier" {
+  type        = string
+  description = "Azure Firewall SKU tier"
+}
+
+variable "nginx_nat_port" {
+  type        = string
+  description = "Port used to DNAT inbound traffic from the Firewall Public IP to the AKS load balancer (NGINX)"
+}
+
 variable "tags" {
   type        = map(string)
-  description = "Additional tags to apply to created resources"
-  default     = {}
+  description = "Tags to apply to created resources"
 }

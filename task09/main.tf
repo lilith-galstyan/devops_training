@@ -30,5 +30,8 @@ module "afw" {
   aks_subnet_id             = data.azurerm_subnet.aks.id
   public_ip_name            = var.public_ip_name
   aks_loadbalancer_ip       = var.aks_loadbalancer_ip
+  firewall_sku_name         = var.firewall_sku_name
+  firewall_sku_tier         = var.firewall_sku_tier
+  nginx_nat_port            = var.nginx_nat_port
   tags                      = local.common_tags
 }

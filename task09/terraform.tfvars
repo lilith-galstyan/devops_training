@@ -10,6 +10,8 @@ public_ip_name   = "cmtr-iaco50xm-mod9-pip"
 
 aks_loadbalancer_ip = "40.88.237.74"
 
-tags = {}
+firewall_sku_name = "AZFW_VNet"
+firewall_sku_tier = "Standard"
+nginx_nat_port    = "80"
 
-afw_subnet_address_prefix = "10.0.4.0/26"
+tags = {}

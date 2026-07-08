@@ -1,6 +1,6 @@
 variable "unique_id" {
   type        = string
-  description = "Unique identifier appended to resource names"
+  description = "Unique identifier appended"
 }
 
 variable "location" {
@@ -36,28 +36,24 @@ variable "public_ip_name" {
 variable "firewall_sku_name" {
   type        = string
   description = "Azure Firewall SKU name"
-  default     = "AZFW_VNet"
 }
 
 variable "firewall_sku_tier" {
   type        = string
   description = "Azure Firewall SKU tier"
-  default     = "Standard"
 }
 
 variable "aks_loadbalancer_ip" {
   type        = string
-  description = "Public IP address of the AKS internal load balancer"
+  description = "Public IP address of the AKS internal"
 }
 
 variable "nginx_nat_port" {
   type        = string
   description = "Port used to DNAT inbound traffic"
-  default     = "80"
 }
 
 variable "tags" {
   type        = map(string)
   description = "Tags to apply to resources created by this module"
-  default     = {}
 }
