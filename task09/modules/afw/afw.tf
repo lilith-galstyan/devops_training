@@ -49,6 +49,13 @@ resource "azurerm_route_table" "afw" {
     next_hop_type          = "VirtualAppliance"
     next_hop_in_ip_address = azurerm_firewall.this.ip_configuration[0].private_ip_address
   }
+
+
+  route {
+    name           = "${var.unique_id}-fw-pip-direct"
+    address_prefix = "${azurerm_public_ip.afw.ip_address}/32"
+    next_hop_type  = "Internet"
+  }
 }
 
 
