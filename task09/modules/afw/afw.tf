@@ -67,16 +67,16 @@ resource "azurerm_firewall_application_rule_collection" "aks_egress" {
   dynamic "rule" {
     for_each = { "${var.unique_id}-aks-fqdn-tags" = local.aks_fqdn_tags }
     content {
-      name              = rule.key
-      source_addresses  = ["*"]
-      fqdn_tags         = rule.value
+      name             = rule.key
+      source_addresses = ["*"]
+      fqdn_tags        = rule.value
     }
   }
 
   rule {
-    name              = "${var.unique_id}-aks-required-fqdns"
-    source_addresses  = ["*"]
-    target_fqdns      = local.aks_allowed_fqdns
+    name             = "${var.unique_id}-aks-required-fqdns"
+    source_addresses = ["*"]
+    target_fqdns     = local.aks_allowed_fqdns
 
     protocol {
       port = "443"
@@ -100,11 +100,11 @@ resource "azurerm_firewall_network_rule_collection" "aks_egress" {
   dynamic "rule" {
     for_each = local.aks_network_rules
     content {
-      name                   = "${var.unique_id}-${rule.key}"
-      source_addresses       = ["*"]
-      destination_ports      = rule.value.destination_ports
-      destination_addresses  = rule.value.destination_addresses
-      protocols               = rule.value.protocols
+      name                  = "${var.unique_id}-${rule.key}"
+      source_addresses      = ["*"]
+      destination_ports     = rule.value.destination_ports
+      destination_addresses = rule.value.destination_addresses
+      protocols             = rule.value.protocols
     }
   }
 }
@@ -122,7 +122,7 @@ resource "azurerm_firewall_nat_rule_collection" "nginx_dnat" {
     destination_ports     = [var.nginx_nat_port]
     destination_addresses = [azurerm_public_ip.afw.ip_address]
     translated_address    = var.aks_loadbalancer_ip
-    translated_port        = var.nginx_nat_port
-    protocols               = ["TCP"]
+    translated_port       = var.nginx_nat_port
+    protocols             = ["TCP"]
   }
 }

@@ -52,3 +52,8 @@ variable "aks_loadbalancer_ip" {
   type        = string
   description = "Public IP address of the AKS load balancer fronting the NGINX service"
 }
+
+variable "tags" {
+  type        = map(string)
+  description = "Tags to be applied to all resources"
+}
