@@ -45,7 +45,8 @@ variable "public_ip_name" {
 
 variable "afw_subnet_address_prefix" {
   type        = string
-  description = "Address prefix (CIDR) for the AzureFirewallSubnet"
+  description = "Address prefix (CIDR) for the AzureFirewallSubnet. If left null, it is auto-derived from vnet_space using cidrsubnet()."
+  default     = null
 }
 
 variable "aks_loadbalancer_ip" {
@@ -55,5 +56,6 @@ variable "aks_loadbalancer_ip" {
 
 variable "tags" {
   type        = map(string)
-  description = "Tags to be applied to all resources"
+  description = "Additional tags to apply to created resources"
+  default     = {}
 }

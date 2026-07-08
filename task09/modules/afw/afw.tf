@@ -109,6 +109,7 @@ resource "azurerm_firewall_network_rule_collection" "aks_egress" {
   }
 }
 
+
 resource "azurerm_firewall_nat_rule_collection" "nginx_dnat" {
   name                = local.nat_rule_collection_name
   azure_firewall_name = azurerm_firewall.this.name

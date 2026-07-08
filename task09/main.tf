@@ -26,9 +26,9 @@ module "afw" {
   location                  = var.location
   resource_group_name       = data.azurerm_resource_group.this.name
   vnet_name                 = data.azurerm_virtual_network.this.name
-  afw_subnet_address_prefix = var.afw_subnet_address_prefix
+  afw_subnet_address_prefix = local.afw_subnet_address_prefix
   aks_subnet_id             = data.azurerm_subnet.aks.id
   public_ip_name            = var.public_ip_name
   aks_loadbalancer_ip       = var.aks_loadbalancer_ip
-  tags                      = var.tags
+  tags                      = local.common_tags
 }
