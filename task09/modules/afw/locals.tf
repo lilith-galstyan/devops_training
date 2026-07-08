@@ -1,4 +1,6 @@
 locals {
+  region_slug = lower(replace(var.location, " ", ""))
+
   afw_subnet_name              = "AzureFirewallSubnet"
   afw_name                     = "${var.unique_id}-afw"
   afw_pip_name                 = var.public_ip_name
@@ -12,7 +14,7 @@ locals {
   aks_fqdn_tags = ["AzureKubernetesService"]
 
   aks_allowed_fqdns = [
-    "*.hcp.${var.location}.azmk8s.io",
+    "*.hcp.${local.region_slug}.azmk8s.io",
     "mcr.microsoft.com",
     "*.data.mcr.microsoft.com",
     "management.azure.com",
@@ -35,7 +37,7 @@ locals {
     }
     tunnel = {
       destination_ports     = ["9000"]
-      destination_addresses = ["AzureCloud.${var.location}"]
+      destination_addresses = ["AzureCloud.${local.region_slug}"]
       protocols             = ["TCP"]
     }
   }
