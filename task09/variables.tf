@@ -67,8 +67,3 @@ variable "tags" {
   type        = map(string)
   description = "Tags to apply to created resources"
 }
-
-variable "fw_permission_name" {
-  type        = string
-  description = "Name of the Azure role assignment for the AKS cluster to manage the Azure Firewall"
-}

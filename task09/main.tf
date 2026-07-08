@@ -44,7 +44,7 @@ data "azurerm_resources" "aks_nsg" {
 
 
 resource "azurerm_network_security_rule" "allow_fw_to_lb" {
-  name                        = var.fw_permission_name
+  name                        = local.fw_to_lb_nsg_rule_name
   priority                    = 400
   direction                   = "Inbound"
   access                      = "Allow"
