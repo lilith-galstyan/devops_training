@@ -8,7 +8,7 @@ subnet_space     = "10.0.0.0/24"
 aks_cluster_name = "cmtr-iaco50xm-mod9-aks"
 public_ip_name   = "cmtr-iaco50xm-mod9-pip"
 
-aks_loadbalancer_ip = "40.88.237.74"
+aks_loadbalancer_ip = "4.255.71.208"
 
 firewall_sku_name = "AZFW_VNet"
 firewall_sku_tier = "Standard"
