@@ -28,14 +28,13 @@ variable "location" {
   type        = string
 }
 
-variable "git_pat" {
-  description = "GitHub personal access token for accessing private repositories."
+variable "blob_url" {
+  description = "The URL of the application archive blob in the Storage Account, used as the ACR build context."
   type        = string
-  sensitive   = true
-
 }
 
-variable "github_repo_url" {
-  description = "The URL of the GitHub repository containing the Dockerfile."
+variable "sas_token" {
+  description = "SAS token granting ACR read access to the private blob context."
   type        = string
+  sensitive   = true
 }

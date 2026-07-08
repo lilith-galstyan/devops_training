@@ -11,6 +11,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     type = "SystemAssigned"
   }
 
+ 
   oidc_issuer_enabled = true
 
   default_node_pool {
@@ -18,7 +19,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     vm_size         = var.aks_node_pool_size
     node_count      = var.aks_node_pool_count
     os_disk_type    = var.aks_node_pool_disk_type
-    os_disk_size_gb = 100
+    os_disk_size_gb = var.aks_node_pool_os_disk_size_gb
   }
 
   key_vault_secrets_provider {

@@ -1,9 +1,14 @@
-output "aci_fqdn" {
-  value       = module.aci.aci_fqdn
-  description = "The fully qualified domain name (FQDN) of the Azure Container Instance (ACI)."
+output "redis_fqdn" {
+  description = "FQDN of Redis in Azure Container Instance."
+  value       = module.aci_redis.redis_fqdn
+}
+
+output "aca_fqdn" {
+  description = "FQDN of App in Azure Container App."
+  value       = module.aca.aca_fqdn
 }
 
 output "aks_lb_ip" {
-  value       = data.kubernetes_service.app_service.status[0].load_balancer[0].ingress[0].ip
-  description = "The public IP address of the AKS Load Balancer."
+  description = "Load Balancer IP address of App in AKS."
+  value       = module.k8s.lb_ip
 }
