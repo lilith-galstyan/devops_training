@@ -1,5 +1,5 @@
 locals {
-  region_slug = lower(replace(var.location, " ", ""))
+  region_slug                  = lower(replace(var.location, " ", ""))
   afw_subnet_name              = "AzureFirewallSubnet"
   afw_name                     = "${var.unique_id}-afw"
   afw_pip_name                 = var.public_ip_name
@@ -9,7 +9,7 @@ locals {
   app_rule_collection_name     = "${var.unique_id}-arc"
   network_rule_collection_name = "${var.unique_id}-nrc"
   nat_rule_collection_name     = "${var.unique_id}-natrc"
-  aks_fqdn_tags = ["AzureKubernetesService"]
+  aks_fqdn_tags                = ["AzureKubernetesService"]
   aks_allowed_fqdns = [
     "*.hcp.${local.region_slug}.azmk8s.io",
     "mcr.microsoft.com",
