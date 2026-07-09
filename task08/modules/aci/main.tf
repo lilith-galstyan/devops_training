@@ -1,3 +1,9 @@
+resource "random_string" "dns" {
+  length  = 6
+  special = false
+  upper   = false
+}
+
 resource "azurerm_container_group" "container" {
   name                = var.aci_name
   location            = var.location
